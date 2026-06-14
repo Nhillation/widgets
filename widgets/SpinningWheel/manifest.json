@@ -1,0 +1,277 @@
+{
+  "default": {
+    "name": "SpinningWheel",
+    "displayName": "Spinning Wheel",
+    "widgetId": "spinningwheelwidget",
+    "widgetDetails": {
+      "author": "dom",
+      "version": "1.0.0",
+      "tagline": "Create and spin a customizable wheel to determine your fate!",
+      "description": "Create a customizable wheel to help make decisions for you! Add wedges, customize their appearance, add sound effects, modify the text appearance, and more!",
+      "tags": [],
+      "dependencies": [],
+      "thumbnailImg": "thumbnail.png",
+      "sidebarImg": "thumbnail.png",
+      "previewImgs": [
+        "thumbnail.png"
+      ],
+      "category": [
+        "Fun",
+        "Interaction"
+      ]
+    },
+    "defaultData": {
+      "spinTrigger": "",
+      "resetTrigger": "",
+      "dismissTrigger": "",
+      "wedges": [
+        {
+          "wedgeName": "Option 1",
+          "wedgeColor": "#ff5252",
+          "wedgeImage": "",
+          "wedgeWeight": 1
+        },
+        {
+          "wedgeName": "Option 2",
+          "wedgeColor": "#448aff",
+          "wedgeImage": "",
+          "wedgeWeight": 1
+        }
+      ],
+      "centerImage": "",
+      "tickSound": "",
+      "landSound": "",
+      "resultGif": "",
+      "removeWedgeOnLand": false,
+      "equalSliceMode": false,
+      "wheelSizePercent": 80,
+      "spinDurationSec": 5,
+      "fontFamily": "arial",
+      "resultFontSize": 64,
+      "resultFontColor": "white",
+      "backgroundColor": ""
+    },
+    "dataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "spinTrigger",
+        "varType": "string",
+        "dataUpdateFunction": "() => `${Date.now()}`",
+        "id": "spinButton",
+        "options": {
+          "buttonText": "Spin Wheel!",
+          "variant": "contained",
+          "color": "primary"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "resetTrigger",
+        "varType": "string",
+        "dataUpdateFunction": "() => `${Date.now()}`",
+        "id": "resetButton",
+        "options": {
+          "buttonText": "Reset Wheel",
+          "variant": "outlined",
+          "color": "secondary"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "dismissTrigger",
+        "varType": "string",
+        "dataUpdateFunction": "() => `${Date.now()}`",
+        "id": "dismissButton",
+        "options": {
+          "buttonText": "Hide Result",
+          "variant": "outlined",
+          "color": "secondary"
+        }
+      },
+      {
+        "id": "wedges",
+        "internalName": "WidgetVarArray",
+        "varTypeName": "wedges",
+        "label": "Wheel Wedges",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "widgetVarTypeComponents": [
+          {
+            "internalName": "WidgetVarTypeTextField",
+            "varTypeName": "wedgeName",
+            "varType": "string",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "id": "wedgeName",
+            "label": "Wedge Name"
+          },
+          {
+            "internalName": "WidgetVarTypeTextField",
+            "varTypeName": "wedgeColor",
+            "varType": "string",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "tooltip": {
+              "text": "Color name or hex code (used when no wedge image is set).",
+              "recommendedValue": "#ff5252"
+            },
+            "id": "wedgeColor",
+            "label": "Wedge Color",
+            "options": {
+              "isColorInput": true
+            }
+          },
+          {
+            "internalName": "WidgetVarTypeOpenFileButton",
+            "varTypeName": "wedgeImage",
+            "varType": "string",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "id": "wedgeImage",
+            "label": "Wedge Image (optional)",
+            "openDir": false
+          },
+          {
+            "internalName": "WidgetVarTypeSlider",
+            "varTypeName": "wedgeWeight",
+            "varType": "number",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "id": "wedgeWeight",
+            "label": "Wedge Weight (relative probability + size)",
+            "startRangeVal": 1,
+            "endRangeVal": 100
+          }
+        ],
+        "options": {
+          "enableSearch": true,
+          "searchFields": [
+            "wedgeName"
+          ]
+        }
+      }
+    ],
+    "additionalDataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeOpenFileButton",
+        "varTypeName": "centerImage",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "centerImage",
+        "label": "Center Wheel Image",
+        "openDir": false
+      },
+      {
+        "internalName": "WidgetVarTypeOpenFileButton",
+        "varTypeName": "tickSound",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "tickSound",
+        "label": "Tick Sound",
+        "openDir": false
+      },
+      {
+        "internalName": "WidgetVarTypeOpenFileButton",
+        "varTypeName": "landSound",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "landSound",
+        "label": "Result Sound",
+        "openDir": false
+      },
+      {
+        "internalName": "WidgetVarTypeOpenFileButton",
+        "varTypeName": "resultGif",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "resultGif",
+        "label": "Result Announcement Image",
+        "openDir": false
+      },
+      {
+        "internalName": "WidgetVarTypeSwitch",
+        "varTypeName": "removeWedgeOnLand",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Upon landing on a given wedge, removes it from the pool of options. Reset the wheel to restore all removed wedges."
+        },
+        "id": "removeWedgeOnLand",
+        "label": "Remove Wedge On Landing"
+      },
+      {
+        "internalName": "WidgetVarTypeSwitch",
+        "varTypeName": "equalSliceMode",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "All wheel wedges are the same size, but more wedges are added for higher weights."
+        },
+        "id": "equalSliceMode",
+        "label": "Split Wedge Weight Mode"
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "wheelSizePercent",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "wheelSizePercent",
+        "label": "Wheel Size",
+        "startRangeVal": 20,
+        "endRangeVal": 100
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "spinDurationSec",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "spinDurationSec",
+        "label": "Spin Duration (sec)",
+        "startRangeVal": 1,
+        "endRangeVal": 15
+      },
+      {
+        "internalName": "WidgetVarTypeFontSelector",
+        "varTypeName": "fontFamily",
+        "varType": "string",
+        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+        "id": "fontFamily"
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "resultFontSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "resultFontSize",
+        "label": "Result Font Size",
+        "startRangeVal": 16,
+        "endRangeVal": 200
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "resultFontColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Use the color name or hex code",
+          "recommendedValue": "white"
+        },
+        "id": "resultFontColor",
+        "label": "Result Font Color",
+        "options": {
+          "isColorInput": true
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "backgroundColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Color name, hex code, or leave empty for transparent.",
+          "recommendedValue": ""
+        },
+        "id": "backgroundColor",
+        "label": "Background Color",
+        "options": {
+          "isColorInput": true
+        }
+      }
+    ]
+  }
+}
