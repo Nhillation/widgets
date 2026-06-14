@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "2026-06-14",
+  "widgets": [
+    {
+      "id": "BaseChat",
+      "folderName": "BaseChat",
+      "name": "BaseChat",
+      "version": "1.0.0",
+      "author": "Dom",
+      "tagline": "",
+      "description": "Displays incoming Twitch chat messages with badges, colors, and emotes.",
+      "tags": [],
+      "category": [
+        "Chat"
+      ],
+      "dependencies": [
+        "twitch"
+      ],
+      "previewImgs": [],
+      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/BaseChat.zip",
+      "size": 32164,
+      "sha256": "27d5601016430e5c5177b6c720f6f6e702faae7dce87f1e05a9221dd43ed7811"
+    },
+    {
+      "id": "BouncingImage",
+      "folderName": "BouncingImage",
+      "name": "BouncingImage",
+      "version": "1.0.0",
+      "author": "Dom",
+      "tagline": "Set an image to bounce around like a DVD logo!",
+      "description": "Set an image to bounce like the DVD logo. Make sure to set the width and height to match your stream output and resize the browser source in OBS to match!",
+      "tags": [],
+      "category": [
+        "Fun"
+      ],
+      "dependencies": [],
+      "thumbnailUrl": "https://github.com/Nhillation/widgets/releases/latest/download/BouncingImage-thumb.png",
+      "previewImgs": [
+        "https://github.com/Nhillation/widgets/releases/latest/download/BouncingImage-preview-1.png"
+      ],
+      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/BouncingImage.zip",
+      "size": 12089,
+      "sha256": "6a90fe247dff2e5354fbd143bc1f14fb604318d54a3192f7b398bcf43131fc08"
+    },
+    {
+      "id": "Fanart",
+      "folderName": "Fanart",
+      "name": "Fanart",
+      "version": "1.0.0",
+      "author": "dom",
+      "tagline": "Rotate through a folder of fanart with artist attributions.",
+      "description": "Cycles through images from a selected folder and displays the artist in the bottom-right corner, derived from each image's filename.",
+      "tags": [],
+      "category": [
+        "Community",
+        "Fun"
+      ],
+      "dependencies": [],
+      "previewImgs": [],
+      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/Fanart.zip",
+      "size": 267068,
+      "sha256": "eac4c537b2afde443d9813f1dab091023d2990ffa55b912231b0c40267d3a635"
+    }
+  ]
+}

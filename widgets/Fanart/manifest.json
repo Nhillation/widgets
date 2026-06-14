@@ -1,0 +1,156 @@
+{
+  "default": {
+    "name": "Fanart",
+    "widgetId": "fanartwidget",
+    "widgetDetails": {
+      "author": "dom",
+      "version": "1.0.0",
+      "tagline": "Rotate through a folder of fanart with artist attributions.",
+      "description": "Cycles through images from a selected folder and displays the artist in the bottom-right corner, derived from each image's filename.",
+      "tags": [],
+      "dependencies": [],
+      "thumbnailImg": "thumbnail.png",
+      "sidebarImg": "thumbnail.png",
+      "previewImgs": [
+        "thumbnail.png"
+      ],
+      "category": [
+        "Community",
+        "Fun"
+      ]
+    },
+    "defaultData": {
+      "interval": 5,
+      "animationType": "fadeOut",
+      "sizePercent": 90,
+      "fontFamily": "arial",
+      "fontSize": 24,
+      "fontColor": "white",
+      "outlineEnabled": false,
+      "outlineColor": "black",
+      "outlineSize": 2,
+      "backgroundColor": ""
+    },
+    "dataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeOpenFileButton",
+        "varTypeName": "imgSrcs",
+        "varType": "array",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "FanartImgFolder",
+        "label": "Fanart Folder",
+        "openDir": true
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "interval",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "FanartInterval",
+        "label": "Rotation Interval (sec)",
+        "startRangeVal": 1,
+        "endRangeVal": 60
+      }
+    ],
+    "additionalDataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeSelect",
+        "varTypeName": "animationType",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "FanartAnimationType",
+        "label": "Image Transition Effect",
+        "selectOptions": [
+          "fadeUp",
+          "fadeDown",
+          "fadeLeft",
+          "fadeRight",
+          "fadeOut",
+          "rotateLeft",
+          "rotateRight"
+        ]
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "sizePercent",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "FanartSizePercent",
+        "label": "Image Size (% of screen)",
+        "startRangeVal": 0,
+        "endRangeVal": 100
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "backgroundColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Use the color name, hex code, or leave this empty for transparent",
+          "recommendedValue": "black"
+        },
+        "id": "FanartBackgroundColor",
+        "label": "Background Color"
+      },
+      {
+        "internalName": "WidgetVarTypeFontSelector",
+        "varTypeName": "fontFamily",
+        "varType": "string",
+        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+        "id": "FanartFontFamily"
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "fontSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "FanartFontSize",
+        "label": "Author Font Size (px)",
+        "startRangeVal": 8,
+        "endRangeVal": 96
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "fontColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Use the color name or hex code",
+          "recommendedValue": "white"
+        },
+        "id": "FanartFontColor",
+        "label": "Author Font Color"
+      },
+      {
+        "internalName": "WidgetVarTypeSwitch",
+        "varTypeName": "outlineEnabled",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "FanartOutlineEnabled",
+        "label": "Enable Author Text Outline"
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "outlineColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Use the color name or hex code",
+          "recommendedValue": "black"
+        },
+        "id": "FanartOutlineColor",
+        "label": "Author Outline Color"
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "outlineSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "FanartOutlineSize",
+        "label": "Author Outline Size (px)",
+        "startRangeVal": 1,
+        "endRangeVal": 8
+      }
+    ]
+  }
+}

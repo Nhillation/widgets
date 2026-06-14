@@ -1,0 +1,63 @@
+{
+  "default": {
+    "name": "BouncingImage",
+    "displayName": "Bouncing Image",
+    "widgetId": "a32sx3sw22309ds",
+    "defaultData": {
+      "width": 1920,
+      "height": 1080,
+      "speed": 3
+    },
+    "dataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "width",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal, newCanvasWidth) => {\r\n                return newCanvasWidth;\r\n            }",
+        "id": "CanvasWidth",
+        "label": "Canvas Width"
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "height",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal, newCanvasHeight) => {\r\n                return newCanvasHeight;\r\n            }",
+        "id": "CanvasHeight",
+        "label": "Canvas Height"
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "speed",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal, newImageSpeed) => {\r\n                return newImageSpeed;\r\n            }",
+        "id": "ImageSpeed",
+        "label": "Image Speed"
+      },
+      {
+        "internalName": "WidgetVarTypeOpenFileButton",
+        "varTypeName": "imageSrc",
+        "varType": "string",
+        "dataUpdateFunction": "(prevVal, newVal) => {\r\n                return newVal;\r\n            }",
+        "id": "ImageSrc",
+        "label": "Select Image",
+        "openDir": false
+      }
+    ],
+    "widgetDetails": {
+      "author": "Dom",
+      "version": "1.0.0",
+      "tagline": "Set an image to bounce around like a DVD logo!",
+      "description": "Set an image to bounce like the DVD logo. Make sure to set the width and height to match your stream output and resize the browser source in OBS to match!",
+      "tags": [],
+      "dependencies": [],
+      "thumbnailImg": "thumbnail.png",
+      "sidebarImg": "thumbnail.png",
+      "previewImgs": [
+        "thumbnail.png"
+      ],
+      "category": [
+        "Fun"
+      ]
+    }
+  }
+}
