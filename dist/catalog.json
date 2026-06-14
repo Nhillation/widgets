@@ -61,6 +61,25 @@
       "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/Fanart.zip",
       "size": 267068,
       "sha256": "eac4c537b2afde443d9813f1dab091023d2990ffa55b912231b0c40267d3a635"
+    },
+    {
+      "id": "SpinningWheel",
+      "folderName": "SpinningWheel",
+      "name": "SpinningWheel",
+      "version": "1.0.0",
+      "author": "dom",
+      "tagline": "Create and spin a customizable wheel to determine your fate!",
+      "description": "Create a customizable wheel to help make decisions for you! Add wedges, customize their appearance, add sound effects, modify the text appearance, and more!",
+      "tags": [],
+      "category": [
+        "Fun",
+        "Interaction"
+      ],
+      "dependencies": [],
+      "previewImgs": [],
+      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/SpinningWheel.zip",
+      "size": 22011,
+      "sha256": "a796541eaf9b5651262de622bf55b43e831146696e073e7b124949cf26d3adf6"
     }
   ]
 }
