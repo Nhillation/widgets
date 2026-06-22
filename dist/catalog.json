@@ -1,27 +1,7 @@
 {
   "schemaVersion": 1,
-  "registryVersion": "2026-06-14",
+  "registryVersion": "2026-06-22",
   "widgets": [
-    {
-      "id": "BaseChat",
-      "folderName": "BaseChat",
-      "name": "BaseChat",
-      "version": "1.0.0",
-      "author": "Dom",
-      "tagline": "",
-      "description": "Displays incoming Twitch chat messages with badges, colors, and emotes.",
-      "tags": [],
-      "category": [
-        "Chat"
-      ],
-      "dependencies": [
-        "twitch"
-      ],
-      "previewImgs": [],
-      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/BaseChat.zip",
-      "size": 32164,
-      "sha256": "27d5601016430e5c5177b6c720f6f6e702faae7dce87f1e05a9221dd43ed7811"
-    },
     {
       "id": "BouncingImage",
       "folderName": "BouncingImage",
@@ -63,23 +43,118 @@
       "sha256": "eac4c537b2afde443d9813f1dab091023d2990ffa55b912231b0c40267d3a635"
     },
     {
+      "id": "NowPlaying",
+      "folderName": "NowPlaying",
+      "name": "NowPlaying",
+      "version": "1.0.0",
+      "author": "dom",
+      "tagline": "Show the name of the song you're listening to!",
+      "description": "Displays the current media playing on your computer. Automatically attaches to any desktop media application (e.g. Spotify Desktop app), or defaults to the name of your browser tab playing audio.",
+      "tags": [
+        "music",
+        "now playing",
+        "song",
+        "ticker",
+        "overlay"
+      ],
+      "category": [
+        "Info"
+      ],
+      "dependencies": [
+        "python"
+      ],
+      "thumbnailUrl": "https://github.com/Nhillation/widgets/releases/latest/download/NowPlaying-thumb.gif",
+      "previewImgs": [
+        "https://github.com/Nhillation/widgets/releases/latest/download/NowPlaying-preview-1.gif"
+      ],
+      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/NowPlaying.zip",
+      "size": 30367852,
+      "sha256": "b97e1918e84234eeb16343d7f7067699865efa5dc78ebf0f813a132996af1c62"
+    },
+    {
       "id": "SpinningWheel",
       "folderName": "SpinningWheel",
       "name": "SpinningWheel",
       "version": "1.0.0",
       "author": "dom",
       "tagline": "Create and spin a customizable wheel to determine your fate!",
-      "description": "Create a customizable wheel to help make decisions for you! Add wedges, customize their appearance, add sound effects, modify the text appearance, and more!",
+      "description": "Create a customizable wheel to help make decisions for you! Add wedges, customize their appearance, add sound effects, modify the text appearance, and more!\n\nTurn on raffle mode to let chatters use a command to add a slice with their name to the wheel!",
       "tags": [],
       "category": [
         "Fun",
         "Interaction"
       ],
-      "dependencies": [],
-      "previewImgs": [],
+      "dependencies": [
+        "twitch",
+        "youtube"
+      ],
+      "thumbnailUrl": "https://github.com/Nhillation/widgets/releases/latest/download/SpinningWheel-thumb.gif",
+      "previewImgs": [
+        "https://github.com/Nhillation/widgets/releases/latest/download/SpinningWheel-preview-1.gif",
+        "https://github.com/Nhillation/widgets/releases/latest/download/SpinningWheel-preview-2.gif"
+      ],
       "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/SpinningWheel.zip",
-      "size": 22011,
-      "sha256": "a796541eaf9b5651262de622bf55b43e831146696e073e7b124949cf26d3adf6"
+      "size": 4791246,
+      "sha256": "d745a87a8919df34bb335541e5e1a913f5aacbf711d67a4f6a240c02e6b32d10"
+    },
+    {
+      "id": "StreamChat",
+      "folderName": "StreamChat",
+      "name": "StreamChat",
+      "version": "1.0.0",
+      "author": "dom",
+      "tagline": "",
+      "description": "Displays incoming Twitch and YouTube chat messages, merged in one! Supports emotes from Twitch, 7TV, BTTV, FFZ, and YouTube!",
+      "tags": [],
+      "category": [
+        "Chat"
+      ],
+      "dependencies": [
+        "twitch",
+        "youtube"
+      ],
+      "thumbnailUrl": "https://github.com/Nhillation/widgets/releases/latest/download/StreamChat-thumb.gif",
+      "previewImgs": [
+        "https://github.com/Nhillation/widgets/releases/latest/download/StreamChat-preview-1.gif",
+        "https://github.com/Nhillation/widgets/releases/latest/download/StreamChat-preview-2.png"
+      ],
+      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/StreamChat.zip",
+      "size": 1348219,
+      "sha256": "d4009f6b5a1f8672bebadca7be86a0b0e1a07ebef7d6e33fd8c21515c86c1f8f"
+    },
+    {
+      "id": "TierList",
+      "folderName": "TierList",
+      "name": "TierList",
+      "version": "1.0.0",
+      "author": "dom",
+      "tagline": "Collaboratively tier any TierMaker list with your friends or with chat!",
+      "description": "A tier listing widget to tier with your friends! Collaborate on item with voting mode, create lists side-by-side in individual mode, or watch items fly around in chaos mode. If you're feeling extra adventurous, let chat participate too!",
+      "tags": [
+        "tierlist",
+        "voting",
+        "interactive",
+        "tiermaker"
+      ],
+      "category": [
+        "Fun",
+        "Interaction",
+        "Community"
+      ],
+      "dependencies": [
+        "twitch",
+        "youtube",
+        "discord",
+        "python"
+      ],
+      "thumbnailUrl": "https://github.com/Nhillation/widgets/releases/latest/download/TierList-thumb.gif",
+      "previewImgs": [
+        "https://github.com/Nhillation/widgets/releases/latest/download/TierList-preview-1.gif",
+        "https://github.com/Nhillation/widgets/releases/latest/download/TierList-preview-2.png"
+      ],
+      "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/TierList.zip",
+      "size": 10633950,
+      "sha256": "b61af72d012eb98b8e124eed93aff1b74b45e73062c589a30d1658b95ceff856"
     }
   ]
 }
