@@ -1,0 +1,186 @@
+{
+  "default": {
+    "name": "StreamChat",
+    "displayName": "Stream Chat",
+    "widgetId": "streamchatwidget",
+    "widgetDetails": {
+      "author": "dom",
+      "version": "1.0.0",
+      "tagline": "",
+      "description": "Displays incoming Twitch and YouTube chat messages, merged in one! Supports emotes from Twitch, 7TV, BTTV, FFZ, and YouTube!",
+      "tags": [],
+      "dependencies": [
+        "twitch",
+        "youtube"
+      ],
+      "thumbnailImg": "chatdemo.gif",
+      "sidebarImg": "thumbnail.png",
+      "previewImgs": [
+        "chatdemo.gif",
+        "example.png"
+      ],
+      "category": [
+        "Chat"
+      ]
+    },
+    "defaultData": {
+      "height": 700,
+      "width": 440,
+      "maxMessages": 50,
+      "animation": "none",
+      "fontFamily": "arial",
+      "fontSize": 22,
+      "badgeSize": 24,
+      "lineSpacing": 1.8,
+      "textColor": "white",
+      "textOutlineSize": 0,
+      "separator": ":",
+      "showPlatformIcons": false
+    },
+    "dataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "height",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "height",
+        "label": "Chat Box Height (px)",
+        "startRangeVal": 100,
+        "endRangeVal": 1080
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "width",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "width",
+        "label": "Chat Box Width (px)",
+        "startRangeVal": 100,
+        "endRangeVal": 1920
+      },
+      {
+        "internalName": "WidgetVarTypeCheckbox",
+        "varTypeName": "showBorder",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "showBorder",
+        "checkboxLabel": "Show 1px border (for positioning)"
+      },
+      {
+        "internalName": "WidgetVarTypeCheckbox",
+        "varTypeName": "showPlatformIcons",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "showPlatformIcons",
+        "checkboxLabel": "Show Twitch/YouTube icon on each message"
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "maxMessages",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "maxMessages",
+        "label": "Max Messages Retained",
+        "startRangeVal": 10,
+        "endRangeVal": 300
+      },
+      {
+        "internalName": "WidgetVarTypeSelect",
+        "varTypeName": "animation",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "animation",
+        "label": "New Message Animation",
+        "selectOptions": [
+          "none",
+          "slide-up",
+          "fade-in",
+          "pop-in",
+          "slide-in-left"
+        ]
+      },
+      {
+        "internalName": "WidgetVarTypeFontSelector",
+        "varTypeName": "fontFamily",
+        "varType": "string",
+        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+        "id": "fontFamily"
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "fontSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "fontSize",
+        "label": "Font Size (px)",
+        "startRangeVal": 8,
+        "endRangeVal": 72
+      }
+    ],
+    "additionalDataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "badgeSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "badgeSize",
+        "label": "Badge Size (px)",
+        "startRangeVal": 8,
+        "endRangeVal": 64
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "lineSpacing",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "lineSpacing",
+        "label": "Line Spacing",
+        "startRangeVal": 1,
+        "endRangeVal": 3,
+        "options": {
+          "step": 0.1
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "textColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "textColor",
+        "label": "Chat Text Color (hex or name)"
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "textOutlineColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "textOutlineColor",
+        "label": "Text Outline Color (hex or name)"
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "textOutlineSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "textOutlineSize",
+        "label": "Text Outline Size (px)",
+        "startRangeVal": 0,
+        "endRangeVal": 8
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "separator",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "separator",
+        "label": "Username/Message Separator"
+      }
+    ],
+    "twitchEventSubscriptions": [
+      "channel.chat.message"
+    ],
+    "youtubeEventSubscriptions": [
+      "youtube.chat.message"
+    ]
+  }
+}

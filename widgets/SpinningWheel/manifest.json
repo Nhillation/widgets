@@ -7,13 +7,17 @@
       "author": "dom",
       "version": "1.0.0",
       "tagline": "Create and spin a customizable wheel to determine your fate!",
-      "description": "Create a customizable wheel to help make decisions for you! Add wedges, customize their appearance, add sound effects, modify the text appearance, and more!",
+      "description": "Create a customizable wheel to help make decisions for you! Add wedges, customize their appearance, add sound effects, modify the text appearance, and more!\n\nTurn on raffle mode to let chatters use a command to add a slice with their name to the wheel!",
       "tags": [],
-      "dependencies": [],
-      "thumbnailImg": "thumbnail.png",
+      "dependencies": [
+        "twitch",
+        "youtube"
+      ],
+      "thumbnailImg": "sample.gif",
       "sidebarImg": "thumbnail.png",
       "previewImgs": [
-        "thumbnail.png"
+        "sample.gif",
+        "thumbnail.gif"
       ],
       "category": [
         "Fun",
@@ -44,6 +48,7 @@
       "resultGif": "",
       "removeWedgeOnLand": false,
       "equalSliceMode": false,
+      "raffleMode": false,
       "wheelSizePercent": 80,
       "spinDurationSec": 5,
       "fontFamily": "arial",
@@ -206,6 +211,17 @@
         "label": "Split Wedge Weight Mode"
       },
       {
+        "internalName": "WidgetVarTypeSwitch",
+        "varTypeName": "raffleMode",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "When enabled, chatters can use the !join command to add a wedge with their username to the wheel. Each chatter can only join once."
+        },
+        "id": "raffleMode",
+        "label": "Raffle Mode"
+      },
+      {
         "internalName": "WidgetVarTypeSlider",
         "varTypeName": "wheelSizePercent",
         "varType": "number",
@@ -270,6 +286,17 @@
         "label": "Background Color",
         "options": {
           "isColorInput": true
+        }
+      }
+    ],
+    "defaultTwitchCommands": [
+      {
+        "name": "join",
+        "prefix": "!",
+        "description": "Add yourself to the wheel as a new slice (only works while Raffle Mode is enabled).",
+        "widgetLink": {
+          "linkType": "event",
+          "parameterMappings": []
         }
       }
     ]

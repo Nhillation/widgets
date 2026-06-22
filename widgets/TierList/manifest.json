@@ -1,0 +1,392 @@
+{
+  "default": {
+    "name": "TierList",
+    "displayName": "Tier List",
+    "widgetId": "tierlistwidget1",
+    "defaultData": {
+      "tiers": [
+        {
+          "tierName": "S",
+          "tierBgColor": "#ff7f7f",
+          "tierFontColor": "#000000"
+        },
+        {
+          "tierName": "A",
+          "tierBgColor": "#ffbf7f",
+          "tierFontColor": "#000000"
+        },
+        {
+          "tierName": "B",
+          "tierBgColor": "#ffff7f",
+          "tierFontColor": "#000000"
+        },
+        {
+          "tierName": "C",
+          "tierBgColor": "#7fff7f",
+          "tierFontColor": "#000000"
+        },
+        {
+          "tierName": "D",
+          "tierBgColor": "#7fbfff",
+          "tierFontColor": "#000000"
+        },
+        {
+          "tierName": "F",
+          "tierBgColor": "#bf7fff",
+          "tierFontColor": "#000000"
+        }
+      ],
+      "tierMode": "Voting",
+      "chatParticipationEnabled": false,
+      "sharedList": true,
+      "finalizeTrigger": 0,
+      "nextTrigger": 0,
+      "prevTrigger": 0,
+      "resetTrigger": 0,
+      "resetTiersTrigger": 0,
+      "loadTierListTrigger": false,
+      "tierItemsJson": "[{\"name\":\"001\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/001png.png\"},{\"name\":\"004\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/004-1png.png\"},{\"name\":\"007\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/007png.png\"},{\"name\":\"152\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/152png.png\"},{\"name\":\"155\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/155png.png\"},{\"name\":\"158\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/158png.png\"},{\"name\":\"252\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/252png.png\"},{\"name\":\"255\",\"imageUrl\":\"https://tiermaker.com/images/chart/chart/updated-pokemon-starter-tierlist-1262555/255png.png\"}]",
+      "tierMakerUrl": "https://tiermaker.com/create/updated-pokemon-starter-tierlist-1262555",
+      "titleText": "Tier List",
+      "titleFontFamily": "Arial",
+      "titleFontSize": 40,
+      "titleColor": "#ffffff",
+      "itemFontFamily": "Arial",
+      "showItemTitle": true,
+      "tierStateJson": ""
+    },
+    "dataManagementElements": [
+      {
+        "id": "tiers",
+        "internalName": "WidgetVarArray",
+        "varTypeName": "tiers",
+        "label": "Tiers (top to bottom)",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "widgetVarTypeComponents": [
+          {
+            "internalName": "WidgetVarTypeTextField",
+            "varTypeName": "tierName",
+            "varType": "string",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "id": "tierName",
+            "label": "Tier Name"
+          },
+          {
+            "internalName": "WidgetVarTypeTextField",
+            "varTypeName": "tierBgColor",
+            "varType": "string",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "tooltip": {
+              "text": "Background color of the tier row label.",
+              "recommendedValue": "#ff7f7f"
+            },
+            "id": "tierBgColor",
+            "label": "Tier Background Color",
+            "options": {
+              "isColorInput": true
+            }
+          },
+          {
+            "internalName": "WidgetVarTypeTextField",
+            "varTypeName": "tierFontColor",
+            "varType": "string",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "tooltip": {
+              "text": "Text color of the tier row label.",
+              "recommendedValue": "#000000"
+            },
+            "id": "tierFontColor",
+            "label": "Tier Font Color",
+            "options": {
+              "isColorInput": true
+            }
+          }
+        ],
+        "options": {
+          "enableSearch": false,
+          "searchFields": [
+            "tierName"
+          ]
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeSelect",
+        "varTypeName": "tierMode",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Voting: one shared list, votes averaged on finalize. Individual / Chaos arrive in a later phase."
+        },
+        "id": "tierMode",
+        "label": "Tier Mode",
+        "selectOptions": [
+          "Voting",
+          "Individual",
+          "Chaos"
+        ]
+      },
+      {
+        "internalName": "WidgetVarTypeSwitch",
+        "varTypeName": "chatParticipationEnabled",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Off by default. When off, Twitch/YouTube chat votes are ignored (Discord still counts). Turn on to let chat vote with !tier."
+        },
+        "id": "chatParticipationEnabled",
+        "label": "Enable Chat Participation"
+      },
+      {
+        "internalName": "WidgetVarTypeSwitch",
+        "varTypeName": "sharedList",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Individual mode: on = everyone on one list; off = a separate list per participant."
+        },
+        "id": "sharedList",
+        "label": "Shared List (Individual Mode)"
+      },
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "finalizeTrigger",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal) => (prevVal ?? 0) + 1",
+        "id": "finalizeButton",
+        "options": {
+          "buttonText": "Finalize Vote",
+          "variant": "contained",
+          "color": "primary"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "nextTrigger",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal) => (prevVal ?? 0) + 1",
+        "id": "nextButton",
+        "options": {
+          "buttonText": "Next Item",
+          "variant": "outlined"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "prevTrigger",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal) => (prevVal ?? 0) + 1",
+        "id": "prevButton",
+        "options": {
+          "buttonText": "Previous Item",
+          "variant": "outlined"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "resetTrigger",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal) => (prevVal ?? 0) + 1",
+        "id": "resetButton",
+        "options": {
+          "buttonText": "Reset Current Item",
+          "variant": "outlined",
+          "color": "secondary"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "resetTiersTrigger",
+        "varType": "number",
+        "dataUpdateFunction": "(prevVal) => (prevVal ?? 0) + 1",
+        "id": "resetTiersButton",
+        "options": {
+          "buttonText": "Override Tiers to Default (S/A/B/C/D/F)",
+          "variant": "outlined",
+          "color": "secondary"
+        }
+      }
+    ],
+    "additionalDataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeButton",
+        "varTypeName": "loadTierListTrigger",
+        "varType": "boolean",
+        "dataUpdateFunction": "() => false",
+        "id": "loadTierListButton",
+        "options": {
+          "buttonText": "Load Tier List from TierMaker",
+          "variant": "contained",
+          "color": "primary",
+          "pythonScriptFileName": "tiermaker_scrape.exe"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypePythonArg",
+        "varTypeName": "tierMakerUrl",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "A TierMaker template link, e.g. https://tiermaker.com/create/<slug>. Passed to the TierMaker loader as its URL argument."
+        },
+        "id": "tierMakerUrl",
+        "label": "TierMaker Link",
+        "options": {
+          "argIndex": 0,
+          "executableFilename": "tiermaker_scrape.exe"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "titleText",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "titleText",
+        "label": "Title Text"
+      },
+      {
+        "internalName": "WidgetVarTypeFontSelector",
+        "varTypeName": "titleFontFamily",
+        "varType": "string",
+        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+        "id": "titleFontFamily",
+        "options": {
+          "label": "Title Font"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "titleFontSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "titleFontSize",
+        "label": "Title Font Size",
+        "startRangeVal": 12,
+        "endRangeVal": 120
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "titleColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Color name or hex code.",
+          "recommendedValue": "#ffffff"
+        },
+        "id": "titleColor",
+        "label": "Title Color",
+        "options": {
+          "isColorInput": true
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeFontSelector",
+        "varTypeName": "itemFontFamily",
+        "varType": "string",
+        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+        "id": "itemFontFamily",
+        "options": {
+          "label": "Item Label Font"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeSwitch",
+        "varTypeName": "showItemTitle",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Show the name of the item currently being tiered. Turn off to hide raw filename labels (e.g. TierMaker items)."
+        },
+        "id": "showItemTitle",
+        "label": "Display current item name"
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "tierStateJson",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Full tier-list state for backup/restore. Managed by the widget — edit only to restore a backup."
+        },
+        "id": "tierStateJson",
+        "label": "Saved Tier-List State (JSON)",
+        "options": {
+          "multiline": true
+        }
+      }
+    ],
+    "defaultCommands": [
+      {
+        "name": "tier",
+        "description": "Set / vote the tier for the current item (a tier name or a number).",
+        "widgetLink": {
+          "linkType": "event",
+          "parameterMappings": [
+            {
+              "commandParameterName": "tier",
+              "description": "Tier name (case-insensitive) or 1-based position (1 = top tier).",
+              "type": "STRING",
+              "required": true
+            }
+          ]
+        }
+      }
+    ],
+    "defaultTwitchCommands": [
+      {
+        "name": "tier",
+        "prefix": "!",
+        "description": "Set / vote the tier for the current item (a tier name or a number).",
+        "permissions": [
+          "everyone"
+        ],
+        "widgetLink": {
+          "linkType": "event",
+          "parameterMappings": [
+            {
+              "type": "STRING",
+              "name": "tier"
+            }
+          ]
+        }
+      }
+    ],
+    "pythonExecutables": [
+      {
+        "fileName": "tiermaker_scrape.exe",
+        "description": "Fetches the tier list data from a TierMaker URL",
+        "nickname": "TierMaker Loader",
+        "executableType": "onCall",
+        "argumentCount": 1
+      }
+    ],
+    "widgetDetails": {
+      "author": "dom",
+      "version": "1.0.0",
+      "tagline": "Collaboratively tier any TierMaker list with your friends or with chat!",
+      "description": "A tier listing widget to tier with your friends! Collaborate on item with voting mode, create lists side-by-side in individual mode, or watch items fly around in chaos mode. If you're feeling extra adventurous, let chat participate too!",
+      "tags": [
+        "tierlist",
+        "voting",
+        "interactive",
+        "tiermaker"
+      ],
+      "dependencies": [
+        "twitch",
+        "youtube",
+        "discord",
+        "python"
+      ],
+      "thumbnailImg": "preview.gif",
+      "sidebarImg": "thumbnail.png",
+      "previewImgs": [
+        "preview.gif",
+        "previewimg.png"
+      ],
+      "category": [
+        "Fun",
+        "Interaction",
+        "Community"
+      ]
+    }
+  }
+}

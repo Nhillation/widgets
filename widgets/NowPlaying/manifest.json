@@ -1,0 +1,156 @@
+{
+  "default": {
+    "name": "NowPlaying",
+    "displayName": "Now Playing",
+    "widgetId": "nowplayingsongwidget",
+    "widgetDetails": {
+      "author": "dom",
+      "version": "1.0.0",
+      "tagline": "Show the name of the song you're listening to!",
+      "description": "Displays the current media playing on your computer. Automatically attaches to any desktop media application (e.g. Spotify Desktop app), or defaults to the name of your browser tab playing audio.",
+      "tags": [
+        "music",
+        "now playing",
+        "song",
+        "ticker",
+        "overlay"
+      ],
+      "dependencies": [
+        "python"
+      ],
+      "thumbnailImg": "thumbnail.gif",
+      "sidebarImg": "thumbnail.png",
+      "previewImgs": [
+        "thumbnail.gif"
+      ],
+      "category": [
+        "Info"
+      ]
+    },
+    "defaultData": {
+      "songName": "Never Gonna Give You Up - Rick Astley",
+      "prefixText": "Now playing: ",
+      "fontFamily": "Arial",
+      "fontSize": 32,
+      "textColor": "#ffffff",
+      "textWidth": 400,
+      "scrollSpeed": 60,
+      "musicIconEnabled": true
+    },
+    "dataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "songName",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Displays the name of the current song you're listening to."
+        },
+        "id": "NowPlayingSongName",
+        "label": "Song Name"
+      }
+    ],
+    "additionalDataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "prefixText",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Static text that comes before the name of the song",
+          "recommendedValue": "Now playing: "
+        },
+        "id": "NowPlayingPrefixText",
+        "label": "Prefix Text"
+      },
+      {
+        "internalName": "WidgetVarTypeFontSelector",
+        "varTypeName": "fontFamily",
+        "varType": "string",
+        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+        "id": "NowPlayingFontFamily",
+        "options": {
+          "label": "Font Family"
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "fontSize",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "NowPlayingFontSize",
+        "label": "Font Size (px)",
+        "startRangeVal": 8,
+        "endRangeVal": 200,
+        "options": {
+          "step": 1
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeTextField",
+        "varTypeName": "textColor",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Color name or hex code for the text and icon.",
+          "recommendedValue": "#ffffff"
+        },
+        "id": "NowPlayingTextColor",
+        "label": "Text Color (hex or name)",
+        "options": {
+          "isColorInput": true
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "textWidth",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Width allotted for the song name. If the song name is wider than this, it scrolls horizontally; otherwise it remains still"
+        },
+        "id": "NowPlayingTextWidth",
+        "label": "Text Width (px)",
+        "startRangeVal": 100,
+        "endRangeVal": 2000,
+        "options": {
+          "step": 10
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeSlider",
+        "varTypeName": "scrollSpeed",
+        "varType": "number",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "How fast the text scrolls (pixels per second) when it is too wide to fit. Has no effect when the text already fits.",
+          "recommendedValue": "60"
+        },
+        "id": "NowPlayingScrollSpeed",
+        "label": "Scroll Speed (px/sec)",
+        "startRangeVal": 10,
+        "endRangeVal": 400,
+        "options": {
+          "step": 5
+        }
+      },
+      {
+        "internalName": "WidgetVarTypeCheckbox",
+        "varTypeName": "musicIconEnabled",
+        "varType": "boolean",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "id": "NowPlayingMusicIcon",
+        "checkboxLabel": "Show music note icon"
+      }
+    ],
+    "pythonExecutables": [
+      {
+        "fileName": "now_playing.exe",
+        "description": "Captures the currently-playing track on Windows via the System Media Transport Controls and emits it as the songName variable (\"Title - Artist\"). Works for Spotify, browser media (e.g. YouTube), and YouTube Music. Pass \"--source <value>\" in the Python manager to choose the source: auto (default), spotify, browser, youtube-music, or browser-tab.",
+        "nickname": "Now Playing (SMTC)",
+        "executableType": "inBackground",
+        "argumentCount": 2
+      }
+    ]
+  }
+}
