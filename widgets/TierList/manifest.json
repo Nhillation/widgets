@@ -4,6 +4,7 @@
     "displayName": "Tier List",
     "widgetId": "tierlistwidget1",
     "defaultData": {
+      "theme": "Refined",
       "tiers": [
         {
           "tierName": "S",
@@ -56,6 +57,24 @@
       "tierStateJson": ""
     },
     "dataManagementElements": [
+      {
+        "internalName": "WidgetVarTypeSelect",
+        "varTypeName": "theme",
+        "varType": "string",
+        "dataUpdateFunction": "(_prev, newVal) => newVal",
+        "tooltip": {
+          "text": "Classic is the original transparent layout. Refined, Columns and Broadcast are full-frame 16:9 designs. Switching keeps the current list, placements and votes.",
+          "recommendedValue": "Refined"
+        },
+        "id": "theme",
+        "label": "Theme",
+        "selectOptions": [
+          "Classic",
+          "Refined",
+          "Columns",
+          "Broadcast"
+        ]
+      },
       {
         "id": "tiers",
         "internalName": "WidgetVarArray",
@@ -115,7 +134,7 @@
         "varType": "string",
         "dataUpdateFunction": "(_prev, newVal) => newVal",
         "tooltip": {
-          "text": "Voting: one shared list, votes averaged on finalize. Individual / Chaos arrive in a later phase."
+          "text": "Voting: one shared list, the most-voted tier wins on finalize (ties go to the higher tier). Individual / Chaos arrive in a later phase."
         },
         "id": "tierMode",
         "label": "Tier Mode",
@@ -154,7 +173,7 @@
         "dataUpdateFunction": "(prevVal) => (prevVal ?? 0) + 1",
         "id": "finalizeButton",
         "options": {
-          "buttonText": "Finalize Vote",
+          "buttonText": "Finalize Vote & Display Next",
           "variant": "contained",
           "color": "primary"
         }
@@ -244,49 +263,63 @@
         "label": "Title Text"
       },
       {
-        "internalName": "WidgetVarTypeFontSelector",
-        "varTypeName": "titleFontFamily",
+        "internalName": "WidgetVarTypeToggleGroup",
+        "varTypeName": "tierListClassicStyle",
         "varType": "string",
-        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
-        "id": "titleFontFamily",
-        "options": {
-          "label": "Title Font"
-        }
-      },
-      {
-        "internalName": "WidgetVarTypeSlider",
-        "varTypeName": "titleFontSize",
-        "varType": "number",
-        "dataUpdateFunction": "(_prev, newVal) => newVal",
-        "id": "titleFontSize",
-        "label": "Title Font Size",
-        "startRangeVal": 12,
-        "endRangeVal": 120
-      },
-      {
-        "internalName": "WidgetVarTypeTextField",
-        "varTypeName": "titleColor",
-        "varType": "string",
-        "dataUpdateFunction": "(_prev, newVal) => newVal",
-        "tooltip": {
-          "text": "Color name or hex code.",
-          "recommendedValue": "#ffffff"
+        "dataUpdateFunction": "(prevVal) => prevVal",
+        "visibleWhen": {
+          "field": "theme",
+          "equals": "Classic"
         },
-        "id": "titleColor",
-        "label": "Title Color",
-        "options": {
-          "isColorInput": true
-        }
-      },
-      {
-        "internalName": "WidgetVarTypeFontSelector",
-        "varTypeName": "itemFontFamily",
-        "varType": "string",
-        "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
-        "id": "itemFontFamily",
-        "options": {
-          "label": "Item Label Font"
-        }
+        "id": "tierListClassicStyle",
+        "label": "Classic Style",
+        "widgetVarTypeComponents": [
+          {
+            "internalName": "WidgetVarTypeFontSelector",
+            "varTypeName": "titleFontFamily",
+            "varType": "string",
+            "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+            "id": "titleFontFamily",
+            "options": {
+              "label": "Title Font"
+            }
+          },
+          {
+            "internalName": "WidgetVarTypeSlider",
+            "varTypeName": "titleFontSize",
+            "varType": "number",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "id": "titleFontSize",
+            "label": "Title Font Size",
+            "startRangeVal": 12,
+            "endRangeVal": 120
+          },
+          {
+            "internalName": "WidgetVarTypeTextField",
+            "varTypeName": "titleColor",
+            "varType": "string",
+            "dataUpdateFunction": "(_prev, newVal) => newVal",
+            "tooltip": {
+              "text": "Color name or hex code.",
+              "recommendedValue": "#ffffff"
+            },
+            "id": "titleColor",
+            "label": "Title Color",
+            "options": {
+              "isColorInput": true
+            }
+          },
+          {
+            "internalName": "WidgetVarTypeFontSelector",
+            "varTypeName": "itemFontFamily",
+            "varType": "string",
+            "dataUpdateFunction": "(prevVal, widgetDataState) => {\r\n                return widgetDataState;\r\n            }",
+            "id": "itemFontFamily",
+            "options": {
+              "label": "Item Label Font"
+            }
+          }
+        ]
       },
       {
         "internalName": "WidgetVarTypeSwitch",
@@ -361,7 +394,7 @@
     ],
     "widgetDetails": {
       "author": "dom",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "tagline": "Collaboratively tier any TierMaker list with your friends or with chat!",
       "description": "A tier listing widget to tier with your friends! Collaborate on item with voting mode, create lists side-by-side in individual mode, or watch items fly around in chaos mode. If you're feeling extra adventurous, let chat participate too!",
       "tags": [
