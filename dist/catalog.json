@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "registryVersion": "2026-10-01",
+  "registryVersion": "2026-10-02",
   "widgets": [
     {
       "id": "BouncingImage",
@@ -126,7 +126,7 @@
       "id": "TierList",
       "folderName": "TierList",
       "name": "TierList",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "author": "dom",
       "tagline": "Collaboratively tier any TierMaker list with your friends or with chat!",
       "description": "A tier listing widget to tier with your friends! Collaborate on item with voting mode, create lists side-by-side in individual mode, or watch items fly around in chaos mode. If you're feeling extra adventurous, let chat participate too!",
@@ -153,8 +153,8 @@
         "https://github.com/Nhillation/widgets/releases/latest/download/TierList-preview-2.png"
       ],
       "downloadUrl": "https://github.com/Nhillation/widgets/releases/latest/download/TierList.zip",
-      "size": 10674955,
-      "sha256": "54df5d3c9f910c6e5ea62dc60ae074bf0e2df81a4e9177071e00ed01aaa30e3a"
+      "size": 10675067,
+      "sha256": "4ecd1056b04814d115c6dc51e5fbaf550f46363f1af9649b28aa6f7ac635f9eb"
     }
   ]
 }
